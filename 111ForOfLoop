@@ -1,0 +1,97 @@
+'use strict';
+
+const weekdays = ['mon', 'tue', 'Wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    //NOTE1
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [`day-${2 + 4}]`]: {
+    open: 0,
+    close: 24,
+  },
+};
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  order: function (starterMenuIndex, mainMenuIndex) {
+    return [this.starterMenu[starterMenuIndex], this.mainMenu[mainMenuIndex]];
+  },
+  openingHours, //NOTE3
+
+  orderPasta(ing1, ing2, ing3) {
+    //NOTE2
+    console.log(`Here is your pasta with ${ing1},${ing2},${ing3} `);
+  },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+
+//LESSON 111 LOOPING ARRAYS
+//FOR OF LOOP
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
+//for-of loop can use break and continue keywords
+//for-of-loop 也可以得到index
+for (const item of menu.entries()) {
+  console.log(`${item[0] + 1}:${item[1]}`); //知识点BUG
+}
+//利用destructing上述可以写成s知识点
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}:${el}`); //知识点entries() 方法返回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对
+}
+
+//LESSON  112 ENHANCED OBJECT LITERALS
+
+//见NOTE 123
+
+//LESSON  113 OPTIONAL CHAINING (.?)
+
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+//可以写成s知识点
+console.log(restaurant.openingHours.mon?.open);
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+//可以写成
+console.log(restaurant.openingHours?.mon?.open);
+
+//example  use case
+
+const days = ['mon', 'tue', 'Wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed'; //NOTE
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//Methods知识点
+console.log(restaurant.orderRissoto?.(2, 1) ?? `Method does not exists`);
+console.log(restaurant.order?.(1, 2) ?? `Method does not exists`);
+
+//Arrays知识点
+
+const users = [{ name: 'Jonas', email: 'hello@gmail.c' }];
+if (users.length > 0) {
+  console.log(users[0].name);
+} else {
+  console.log('User array empty');
+}
+//现在可以写成
+
+console.log(users[0]?.name ?? `User array empty `);
