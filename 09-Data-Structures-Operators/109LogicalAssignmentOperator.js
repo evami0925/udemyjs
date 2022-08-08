@@ -57,7 +57,7 @@ rest1.numGuests ??= 10;
 
 //知识点
 //在已知存在的情况下替换内容
-rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest2.owner = rest2.owner && '<ANONYMOUS>'; //需注意
 //简写 rest2.owner &&='<ANONYMOUS>'
 //想要设置defalut value
 rest1.numGuests = rest1.numGuests || 10;

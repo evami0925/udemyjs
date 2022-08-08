@@ -46,7 +46,7 @@ rest.set([1, 2], 'Test'); //知识点 NOTE
 console.log(rest);
 console.log(rest.size);
 console.log(rest.get([1, 2])); //这样是没办法调这个array的数据的，即使是同一个样子的element，
-//但他们not the same object in the heap,所以需要如下查询//知识点 NOTE
+//但他们not the same object in the heap,所以需要如下查询//知识点 NOTE  //需注意
 const arr = [1, , 2];
 rest.set(arr, 'Test');
 console.log(rest.get(arr));
@@ -68,7 +68,7 @@ const question = new Map([
 console.log(question);
 
 //上述很像array structure that is returned from calling object.entries即 可以联想到可以从
-//objects转成object//知识点 NOTE
+//object.entries转成object//知识点 NOTE
 
 // Convert object to map
 const weekdays = ['mon', 'tue', 'Wed', 'thu', 'fri', 'sat', 'sun'];

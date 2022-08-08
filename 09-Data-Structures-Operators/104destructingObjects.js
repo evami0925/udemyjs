@@ -77,7 +77,7 @@ let a = 111;
 let b = 999;
 const obj = { a: 23, b: 7, c: 14 };
 //now we want to destructure this {a:23,b:7,c:14} object
-//我们不能说const{a,b}因为上述已经declare a和b了
+//我们不能说const{a,b}因为上述已经declare a和b了//需注意
 ({ a, b } = obj);
 console.log(a, b);
 //知识点，如果需要overwrite上述意见declare过得variable，下述 array拆分的时候 加（），例如({ a, b } = obj);
@@ -88,7 +88,7 @@ const { fri } = openingHours;
 console.log(fri);
 //excise we want creat two variable, open and close for sat
 const {
-  sat: { open: o, close: c },
+  sat: { open: o, close: c }, //需注意
 } = openingHours;
 console.log(o, c);
 //知识点 如果在nested object情况下提取variable，需要用：例如如下

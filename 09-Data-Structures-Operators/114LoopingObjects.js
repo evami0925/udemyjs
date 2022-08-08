@@ -43,7 +43,7 @@ const restaurant = {
 //FOR-OF LOOP 可以loop 一个array that is iterable，也可以loop over objects 不是iterable的，but in an indirect way
 
 //Object Keys知识点
-//先看loop property names即Keys （先用Object.keys方法 取出keys组成一个array，然后for-of loop，取出每个value
+//property names即Keys （先用Object.keys方法 取出keys组成一个array，然后for-of loop，取出每个value
 const a = Object.keys(openingHours);
 console.log(a); //Object.keys 该方法是取property name成array
 
@@ -66,5 +66,5 @@ for (const [key, { open, close }] of entries) {
 }
 //知识点，如果是array里面提取 是array.entries（）具体操作 可以看LESSON 111,
 // for (const [i, el] of menu.entries()) {
-//     console.log(`${i + 1}:${el}`);
+//     console.log(`${i + 1}:${el}`);//需注意
 // }

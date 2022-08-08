@@ -90,12 +90,12 @@ checkBaggage(`I have some food and Knife`);
 checkBaggage('have some snacks and gun for protection');
 
 //LESSON 123WorkingWithStringsParts3
-//split method//知识点
+//split method//知识点   //需注意
 console.log('a+very+nice+string'.split('+')); //NOTE split之后形成的是ARRAY ['a', 'very', 'nice', 'string']
 console.log('eva mi'.split(' ')); // ['eva', 'mi']
 
 const [firstname, lastname] = 'jonas schedtmann'.split(' ');
-//join method//知识点 NOTE  array在join之后 又变成string类型
+//join method//知识点 NOTE  array在join之后 又变成string类型//需注意
 const newName = ['Mr.', firstname, lastname.toUpperCase()].join(' ');
 console.log(newName);
 
